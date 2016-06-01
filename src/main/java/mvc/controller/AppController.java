@@ -34,6 +34,7 @@ public class AppController {
 
         List<Employee> employees = service.findAllEmployees();
         model.addAttribute("employees", employees);
+        System.out.println("ZZHOO");
         return "allemployees";
     }
 
