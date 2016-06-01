@@ -18,12 +18,14 @@ public class AdminDeviceManagementController {
     DeviceService deviceService;
 
     @RequestMapping(value = "/device/", method = RequestMethod.GET)
-    public ResponseEntity<List<Device>> listAllUsers() {
+    public String listAllUsers() {
         System.out.println("ZHOOOOOOOO");
-        List<Device> devices = deviceService.getAllDevices();
-        if (devices.isEmpty()) {
-            return new ResponseEntity<List<Device>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<Device>>(devices, HttpStatus.OK);
+        return "ZHOOOOOOOOOOOOOO";
+//        ResponseEntity<List<Device>>
+//        List<Device> devices = deviceService.getAllDevices();
+//        if (devices.isEmpty()) {
+//            return new ResponseEntity<List<Device>>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<List<Device>>(devices, HttpStatus.OK);
     }
 }
