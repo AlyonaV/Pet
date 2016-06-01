@@ -204,6 +204,7 @@
 						<configuration>
 							<outputDirectory>webapps</outputDirectory>
 							<warName>ROOT</warName>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
 						</configuration>
 					</plugin>
 				</plugins>
