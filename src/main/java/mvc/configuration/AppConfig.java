@@ -1,55 +1,44 @@
 package mvc.configuration;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = "mvc")
+public class AppConfig {
 
-public class AppConfig extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
+//    @Autowired
+//    PetToPetGroupConverter petToPetGroupConverter;
 
-    private static final String DISPATCHER = "dispatcher";
-
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-
-        ctx.register(WebAppConfig.class);
-        servletContext.addListener(new ContextLoaderListener(ctx));
-
-        ctx.setServletContext(servletContext);
-
-        ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER,
-                new DispatcherServlet(ctx));
-
-        servlet.addMapping("/");
-        servlet.setLoadOnStartup(1);
-
-        FilterRegistration.Dynamic securityFilter = servletContext.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class);
-        securityFilter.addMappingForUrlPatterns(null, false, "/*");
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/WEB-INF/views/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
     }
 
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{
-                WebAppConfig.class
-        };
-    }
 
-    @Override
-    protected String[] getServletMappings() {
-        return new String[0];
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[0];
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
     }
 
 }
