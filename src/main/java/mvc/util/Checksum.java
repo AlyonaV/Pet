@@ -107,23 +107,22 @@ public class Checksum {
     }
 
     public static int crc16(String type, ByteBuffer buf) {
-        switch (type) {
-            case CRC16_X25:
-                return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE) ^ 0xFFFF;
-            case CRC16_CCITT_FALSE:
-                return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE);
-            case CRC16_KERMIT:
-                return crc16Reflected(buf, 0, CRC16_CCITT_TABLE_REVERSE);
-            case CRC16_XMODEM:
-                return crc16Unreflected(buf, 0, CRC16_CCITT_TABLE);
-            case CRC16_AUG_CCITT:
-                return crc16Unreflected(buf, 0x1d0f, CRC16_CCITT_TABLE);
-            case CRC16_GENIBUS:
-                return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE) ^ 0xFFFF;
-            case CRC16_MCRF4XX:
-                return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE);
-            default:
-                throw new UnsupportedOperationException(type);
+        if (type.equals(CRC16_X25)) {
+            return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE) ^ 0xFFFF;
+        } else if (type.equals(CRC16_CCITT_FALSE)) {
+            return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE);
+        } else if (type.equals(CRC16_KERMIT)) {
+            return crc16Reflected(buf, 0, CRC16_CCITT_TABLE_REVERSE);
+        } else if (type.equals(CRC16_XMODEM)) {
+            return crc16Unreflected(buf, 0, CRC16_CCITT_TABLE);
+        } else if (type.equals(CRC16_AUG_CCITT)) {
+            return crc16Unreflected(buf, 0x1d0f, CRC16_CCITT_TABLE);
+        } else if (type.equals(CRC16_GENIBUS)) {
+            return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE) ^ 0xFFFF;
+        } else if (type.equals(CRC16_MCRF4XX)) {
+            return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE);
+        } else {
+            throw new UnsupportedOperationException(type);
         }
     }
 
