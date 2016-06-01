@@ -105,26 +105,26 @@
 			<version>5.1.3.Final</version>
 		</dependency>
 
-		<!-- MySQL -->
+		 <!--MySQL-->
 		<!--<dependency>-->
 			<!--<groupId>mysql</groupId>-->
 			<!--<artifactId>mysql-connector-java</artifactId>-->
 			<!--<version>${mysql.connector.version}</version>-->
 		<!--</dependency>-->
 
-		<!--&lt;!&ndash; Joda-Time &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>joda-time</groupId>-->
-			<!--<artifactId>joda-time</artifactId>-->
-			<!--<version>${joda-time.version}</version>-->
-		<!--</dependency>-->
+		<!-- Joda-Time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
 
-		<!--&lt;!&ndash; To map JodaTime with database type &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.jadira.usertype</groupId>-->
-			<!--<artifactId>usertype.core</artifactId>-->
-			<!--<version>3.0.0.CR1</version>-->
-		<!--</dependency>-->
+		<!-- To map JodaTime with database type -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>3.0.0.CR1</version>
+		</dependency>
 
 		<!--&lt;!&ndash; Servlet+JSP+JSTL &ndash;&gt;-->
 		<!--&lt;!&ndash;<dependency>&ndash;&gt;-->
