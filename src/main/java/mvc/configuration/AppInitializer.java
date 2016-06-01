@@ -17,7 +17,7 @@ public class AppInitializer implements WebApplicationInitializer {
         webApplicationContext.register(AppConfig.class);
 
         ServletRegistration.Dynamic dynamc = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(webApplicationContext));
-        dynamc.addMapping("/*");
+        dynamc.addMapping("/");
         dynamc.setLoadOnStartup(1);
     }
 
