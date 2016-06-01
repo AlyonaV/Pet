@@ -19,6 +19,7 @@ public class AdminDeviceManagementController {
 
     @RequestMapping(value = "/device/", method = RequestMethod.GET)
     public ResponseEntity<List<Device>> listAllUsers() {
+        System.out.println("ZHOOOOOOOO");
         List<Device> devices = deviceService.getAllDevices();
         if (devices.isEmpty()) {
             return new ResponseEntity<List<Device>>(HttpStatus.NO_CONTENT);
