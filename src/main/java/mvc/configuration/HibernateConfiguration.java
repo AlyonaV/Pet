@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"com.springapp.mvc.configuration"})
+@ComponentScan({"mvc.configuration"})
 @PropertySource(value = {"classpath:application.properties"})
 public class HibernateConfiguration {
 
