@@ -33,7 +33,7 @@ public class PetGroupDaoImpl extends AbstractDao<Integer, PetGroup> implements P
     public List<PetGroup> getByUserId(Integer id) {
         System.out.println("user id: " + id);
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("userId", id));
+        crit.add(Restrictions.eq("userid", id));
         return (List<PetGroup>) crit.list();
     }
 
