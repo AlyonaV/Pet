@@ -18,7 +18,7 @@ public class PositionDTO {
     private Integer longG;
     private Integer longM;
     private Integer longMm;
-    private Timestamp time;
+    private Date time;
 
     public PositionDTO() {
     }
