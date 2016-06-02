@@ -22,7 +22,6 @@ public class Pet {
 ////            joinColumns = { @JoinColumn(name = "petid") },
 ////            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
 //    private List<PetGroup> petGroups = new ArrayList<PetGroup>();
-    private int COUNT = 100000;
 
     public Pet() {
     }
