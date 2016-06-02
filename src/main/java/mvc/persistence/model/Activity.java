@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "activity")
@@ -40,13 +40,13 @@ public class Activity {
 //    @DateTimeFormat(pattern="HH:mm:ss-dd/MM/yyyy")
     @Column(name = "time", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date time;
+    private Timestamp time;
 
     public Activity() {
     }
 
     public Activity(String name, Device device, Integer latG, Integer latM, Integer latMm, Integer longG,
-                    Integer longM, Integer longMm, Integer lon, Integer lat, Date time) {
+                    Integer longM, Integer longMm, Integer lon, Integer lat, Timestamp time) {
         this.name = name;
         this.device = device;
         this.latG = latG;
@@ -132,11 +132,11 @@ public class Activity {
         this.longMm = longMm;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

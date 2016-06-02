@@ -9,7 +9,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="EMPLOYEE")
@@ -27,7 +27,7 @@ public class Employee {
 //    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "JOINING_DATE", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date joiningDate;
+    private Timestamp joiningDate;
 
     @NotNull
     @Digits(integer=8, fraction=2)
@@ -54,11 +54,11 @@ public class Employee {
         this.name = name;
     }
 
-    public Date getJoiningDate() {
+    public Timestamp getJoiningDate() {
         return joiningDate;
     }
 
-    public void setJoiningDate(Date joiningDate) {
+    public void setJoiningDate(Timestamp joiningDate) {
         this.joiningDate = joiningDate;
     }
 
