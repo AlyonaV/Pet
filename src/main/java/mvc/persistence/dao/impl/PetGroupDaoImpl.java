@@ -33,7 +33,7 @@ public class PetGroupDaoImpl extends AbstractDao<Integer, PetGroup> implements P
     public List<PetGroup> getByUserId(Integer id) {
         System.out.println("user id: " + id);
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.sqlRestriction("userId == " + id));
+        crit.add(Restrictions.sqlRestriction("userId == '" + id + "'"));
         return (List<PetGroup>) crit.list();
     }
 
@@ -46,7 +46,7 @@ public class PetGroupDaoImpl extends AbstractDao<Integer, PetGroup> implements P
     public void deleteById(Integer id) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("id", id));
-        PetGroup petGroup = (PetGroup)crit.uniqueResult();
+        PetGroup petGroup = (PetGroup) crit.uniqueResult();
         delete(petGroup);
     }
 }
