@@ -34,4 +34,9 @@ public class ActivityServiceImpl implements ActivityService{
     public void deleteById(Integer id) {
         dao.getByDeviceId(id);
     }
+
+    @Override
+    public Activity getLast(Integer deviceId) {
+        return dao.getLast(deviceId);
+    }
 }

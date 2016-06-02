@@ -16,4 +16,6 @@ public interface ActivityDao {
     void save(Activity activity);
 
     void deleteById(Integer id);
+
+    Activity getLast(Integer deviceId);
 }

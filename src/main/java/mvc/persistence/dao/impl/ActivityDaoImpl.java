@@ -4,6 +4,7 @@ import mvc.persistence.dao.AbstractDao;
 import mvc.persistence.dao.ActivityDao;
 import mvc.persistence.model.Activity;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -35,5 +36,14 @@ public class ActivityDaoImpl extends AbstractDao<Integer, Activity> implements A
         crit.add(Restrictions.eq("id", id));
         Activity activity = (Activity) crit.uniqueResult();
         delete(activity);
+    }
+
+    @Override
+    public Activity getLast(Integer deviceId) {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.sqlRestriction("deviceId = " + deviceId));
+        crit.addOrder(Order.desc("time"));
+        crit.setMaxResults(1);
+        return (Activity) crit.uniqueResult();
     }
 }

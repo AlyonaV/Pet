@@ -18,20 +18,24 @@ public class Activity {
     @Column(name = "name", nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="deviceid")
+    @JoinColumn(name="deviceId")
     private Device device;
-    @Column(name="LatG",nullable=false)
+    @Column(name="latG",nullable=false)
     private Integer latG;
-    @Column(name="LatM",nullable=false)
+    @Column(name="latM",nullable=false)
     private Integer latM;
-    @Column(name="LatMm",nullable=false)
+    @Column(name="latMm",nullable=false)
     private Integer latMm;
-    @Column(name="LongG",nullable=false)
+    @Column(name="longG",nullable=false)
     private Integer longG;
-    @Column(name="LongM",nullable=false)
+    @Column(name="longM",nullable=false)
     private Integer longM;
-    @Column(name="LongMm",nullable=false)
+    @Column(name="longMm",nullable=false)
     private Integer longMm;
+    @Column(name="lon",nullable=false)
+    private Integer lon;
+    @Column(name="lat",nullable=false)
+    private Integer lat;
     @NotNull
     @DateTimeFormat(pattern="HH:mm:ss-dd/MM/yyyy")
     @Column(name = "time", nullable = false)
@@ -41,7 +45,8 @@ public class Activity {
     public Activity() {
     }
 
-    public Activity(String name, Device device, Integer latG, Integer latM, Integer latMm, Integer longG, Integer longM, Integer longMm, LocalDate time) {
+    public Activity(String name, Device device, Integer latG, Integer latM, Integer latMm, Integer longG,
+                    Integer longM, Integer longMm, Integer lon, Integer lat, LocalDate time) {
         this.name = name;
         this.device = device;
         this.latG = latG;
@@ -50,6 +55,8 @@ public class Activity {
         this.longG = longG;
         this.longM = longM;
         this.longMm = longMm;
+        this.lon = lon;
+        this.lat = lat;
         this.time = time;
     }
 
@@ -133,6 +140,22 @@ public class Activity {
         this.time = time;
     }
 
+    public Integer getLon() {
+        return lon;
+    }
+
+    public void setLon(Integer lon) {
+        this.lon = lon;
+    }
+
+    public Integer getLat() {
+        return lat;
+    }
+
+    public void setLat(Integer lat) {
+        this.lat = lat;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -142,9 +165,11 @@ public class Activity {
 
         if (!device.equals(activity.device)) return false;
         if (!id.equals(activity.id)) return false;
+        if (!lat.equals(activity.lat)) return false;
         if (!latG.equals(activity.latG)) return false;
         if (!latM.equals(activity.latM)) return false;
         if (!latMm.equals(activity.latMm)) return false;
+        if (!lon.equals(activity.lon)) return false;
         if (!longG.equals(activity.longG)) return false;
         if (!longM.equals(activity.longM)) return false;
         if (!longMm.equals(activity.longMm)) return false;
@@ -165,6 +190,8 @@ public class Activity {
         result = 31 * result + longG.hashCode();
         result = 31 * result + longM.hashCode();
         result = 31 * result + longMm.hashCode();
+        result = 31 * result + lon.hashCode();
+        result = 31 * result + lat.hashCode();
         result = 31 * result + time.hashCode();
         return result;
     }
@@ -181,6 +208,8 @@ public class Activity {
                 ", longG=" + longG +
                 ", longM=" + longM +
                 ", longMm=" + longMm +
+                ", lon=" + lon +
+                ", lat=" + lat +
                 ", time=" + time +
                 '}';
     }
