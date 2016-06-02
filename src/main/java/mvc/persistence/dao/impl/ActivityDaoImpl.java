@@ -21,7 +21,7 @@ public class ActivityDaoImpl extends AbstractDao<Integer, Activity> implements A
     @Override
     public List<Activity> getByDeviceId(Integer id) {
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("deviceId", id));
+        crit.add(Restrictions.sqlRestriction("deviceId = " + id));
         return (List<Activity>) crit.list();
     }
 
