@@ -18,4 +18,6 @@ public interface DeviceDao {
     void deleteById(Integer id);
 
     List<Device> getAllDevices();
+
+    List<Device> getByPetId(Integer petId);
 }

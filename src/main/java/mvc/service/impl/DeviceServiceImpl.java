@@ -40,4 +40,9 @@ public class DeviceServiceImpl implements DeviceService{
     public List<Device> getAllDevices() {
         return dao.getAllDevices();
     }
+
+    @Override
+    public List<Device> getByPetId(Integer petId) {
+        return dao.getByPetId(petId);
+    }
 }

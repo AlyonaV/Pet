@@ -48,4 +48,12 @@ public class DeviceDaoImpl extends AbstractDao<Integer, Device> implements Devic
 //        }
         return (List<Device>) crit.list();
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Device> getByPetId(Integer petId) {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.sqlRestriction("petId = "+ petId));
+        return (List<Device>) crit.list();
+    }
 }

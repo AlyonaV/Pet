@@ -18,4 +18,6 @@ public interface DeviceService {
     void deleteById(Integer id);
 
     List<Device> getAllDevices();
+
+    List<Device> getByPetId(Integer petId);
 }
