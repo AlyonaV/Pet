@@ -20,7 +20,7 @@ public class TK103Protocol {
         sentenceDTO.setValid("A".equals(parts[4]));
 
         String ts = parts[11] + parts[3].substring(0,6);
-        sentenceDTO.setTimestamp(format.parse(ts));
+//        sentenceDTO.setTimestamp(format.parse(ts));
 
         sentenceDTO.setLatG(Integer.parseInt(parts[5].substring(0,1)));
         sentenceDTO.setLatM(Integer.parseInt(parts[5].substring(2, 3)));

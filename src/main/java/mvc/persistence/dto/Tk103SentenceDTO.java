@@ -2,11 +2,11 @@ package mvc.persistence.dto;
 
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Tk103SentenceDTO implements Serializable{
     private Integer id;
-    private Date timestamp;
+    private Timestamp timestamp;
 
     private Boolean valid;
 
@@ -40,11 +40,11 @@ public class Tk103SentenceDTO implements Serializable{
         this.id = id;
     }
 
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
