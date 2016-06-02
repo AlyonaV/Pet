@@ -1,10 +1,10 @@
 package mvc.configuration;
 
-import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.orm.hibernate4.support.OpenSessionInViewFilter;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -24,6 +24,11 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[] { new OpenSessionInViewFilter(), new CommonsRequestLoggingFilter() };
     }
 
 }

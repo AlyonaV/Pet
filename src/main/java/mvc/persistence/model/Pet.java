@@ -17,7 +17,7 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name="petstateid")
     private PetState petState;
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "petgroup_pet",
             joinColumns = { @JoinColumn(name = "petid") },
             inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
