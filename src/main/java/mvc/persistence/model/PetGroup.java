@@ -17,7 +17,7 @@ public class PetGroup {
     @Column(name = "name", unique=true, nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="userid")
+    @JoinColumn(name="userId")
     private User user;
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
