@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@SessionAttributes({"last"})
 @RequestMapping("/api/owner")
 public class OwnerMapController {
     @Autowired
@@ -71,6 +70,9 @@ public class OwnerMapController {
             if (!sessionActivityAttributes.hasRefreshed(deviceId, lastPosition)) {
                 Thread.sleep(500);
             }
+        }
+        else{
+            sessionActivityAttributes.createSession(deviceId, lastPosition);
         }
         Activity lastActivity = activityService.getLast(deviceId);
 
