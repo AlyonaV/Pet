@@ -71,7 +71,7 @@ public class OwnerMapController {
             }
         }
         else{
-            sessionActivityAttributes.createSession(deviceId, lastPosition);
+            sessionActivityAttributes.createSession(deviceId, new PositionDTO(activityService.getLast(deviceId)));
         }
         Activity lastActivity = activityService.getLast(deviceId);
 
