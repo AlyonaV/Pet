@@ -6,32 +6,32 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "DEVICE")
+@Table(name = "device")
 public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @Size(min=10, max=15)
-    @Column(name = "IMEI", unique=true,nullable = false)
+    @Column(name = "imei", unique=true,nullable = false)
     private String imei;
-    @Column(name = "SENDINGINTERVAL", nullable = false)
+    @Column(name = "sendinginterval", nullable = false)
     private String sendingInterval;
-    @Column(name = "ISACTIVE", nullable = false)
+    @Column(name = "isactive", nullable = false)
     private boolean isActive;
-    @Column(name = "BATTERY", nullable = false)
+    @Column(name = "battery", nullable = false)
     private Integer battery;
     @ManyToOne
-    @JoinColumn(name="STATUSID")
+    @JoinColumn(name="statusid")
     private Status status;
     @ManyToOne
-    @JoinColumn(name="PROTOID")
+    @JoinColumn(name="protoid")
     private Protocol protocol;
     @NotEmpty
     @ManyToOne
-    @JoinColumn(name="PETID")
+    @JoinColumn(name="petid")
     private Pet pet;
 
     public Device() {

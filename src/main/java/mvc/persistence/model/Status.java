@@ -3,13 +3,13 @@ package mvc.persistence.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="STATUS")
+@Table(name="status")
 public class Status {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="NAME", unique = true,nullable = false)
+    @Column(name="name", unique = true,nullable = false)
     private String name;
 
     public Status() {

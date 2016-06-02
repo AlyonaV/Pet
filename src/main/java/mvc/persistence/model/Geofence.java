@@ -4,16 +4,16 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "GEOFENCE")
+@Table(name = "geofence")
 public class Geofence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="DEVICEID")
+    @JoinColumn(name="deviceid")
     private Device device;
     @Column(name="LatG",nullable=false)
     private Integer latG;

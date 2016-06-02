@@ -9,16 +9,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ACTIVITY")
+@Table(name = "activity")
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="DEVICEID")
+    @JoinColumn(name="deviceid")
     private Device device;
     @Column(name="LatG",nullable=false)
     private Integer latG;
@@ -34,7 +34,7 @@ public class Activity {
     private Integer longMm;
     @NotNull
     @DateTimeFormat(pattern="HH:mm:ss-dd/MM/yyyy")
-    @Column(name = "TIME", nullable = false)
+    @Column(name = "time", nullable = false)
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private LocalDate time;
 

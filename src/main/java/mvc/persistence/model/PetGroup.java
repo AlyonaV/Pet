@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "PETGROUP")
+@Table(name = "petgroup")
 public class PetGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", unique=true, nullable = false)
+    @Column(name = "name", unique=true, nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="USERID")
+    @JoinColumn(name="userid")
     private User user;
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "PETGROUP_PET",
-            joinColumns = { @JoinColumn(name = "PETGROUPID") },
-            inverseJoinColumns = { @JoinColumn(name = "PETID") })
+    @JoinTable(name = "petgroup_pet",
+            joinColumns = { @JoinColumn(name = "petgroupid") },
+            inverseJoinColumns = { @JoinColumn(name = "petid") })
     private List<Pet> pets = new ArrayList<Pet>();
 
     public PetGroup() {

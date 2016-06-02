@@ -3,26 +3,26 @@ package mvc.persistence.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PETSTATE")
+@Table(name = "petstate")
 public class PetState {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "WEIGHT")
+    @Column(name = "weight")
     private Integer weight;
-    @Column(name = "AGE")
+    @Column(name = "age")
     private Integer age;
-    @Column(name = "PULSE")
+    @Column(name = "pulse")
     private Integer pulse;
-    @Column(name = "WATER")
+    @Column(name = "water")
     private String water;
-    @Column(name = "EYES")
+    @Column(name = "eyes")
     private String eyes;
-    @Column(name = "TEETH")
+    @Column(name = "teeth")
     private String teeth;
-    @Column(name = "DRUGS")
+    @Column(name = "drugs")
     private String drugs;
-    @Column(name = "APPETITE")
+    @Column(name = "appetite")
     private String appetite;
 
     public PetState() {

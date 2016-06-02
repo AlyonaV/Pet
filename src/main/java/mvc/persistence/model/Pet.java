@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "PET")
+@Table(name = "pet")
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @ManyToOne
-    @JoinColumn(name="PETSTATEID")
+    @JoinColumn(name="petstateid")
     private PetState petState;
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinTable(name = "PETGROUP_PET",
-            joinColumns = { @JoinColumn(name = "PETID") },
-            inverseJoinColumns = { @JoinColumn(name = "PETGROUPID") })
+    @JoinTable(name = "petgroup_pet",
+            joinColumns = { @JoinColumn(name = "petid") },
+            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
     private List<PetGroup> petGroups = new ArrayList<PetGroup>();
 
     public Pet() {
