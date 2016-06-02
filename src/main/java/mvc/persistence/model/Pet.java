@@ -17,10 +17,10 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name="petstateid")
     private PetState petState;
-    @ManyToMany(mappedBy = "pets", fetch = FetchType.LAZY)
-//    @JoinTable(name = "petgroup_pet",
-//            joinColumns = { @JoinColumn(name = "petid") },
-//            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(name = "petgroup_pet",
+            joinColumns = { @JoinColumn(name = "petid") },
+            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
     private List<PetGroup> petGroups = new ArrayList<PetGroup>();
 
     public Pet() {

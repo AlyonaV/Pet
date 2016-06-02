@@ -20,7 +20,7 @@ public class PetGroup {
     @JoinColumn(name="userid")
     private User user;
     @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "petgroup_pet",
             joinColumns = { @JoinColumn(name = "petgroupid") },
             inverseJoinColumns = { @JoinColumn(name = "petid") })
