@@ -1,5 +1,6 @@
 package mvc.controller.owner;
 
+import mvc.SessionActivityAttributes;
 import mvc.persistence.dto.PetDevicesDTO;
 import mvc.persistence.dto.PetGroupDevicesDTO;
 import mvc.persistence.dto.PositionDTO;
@@ -11,7 +12,6 @@ import mvc.service.ActivityService;
 import mvc.service.DeviceService;
 import mvc.service.PetGroupService;
 import mvc.service.UserService;
-import mvc.util.SessionActivityAttributes;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
