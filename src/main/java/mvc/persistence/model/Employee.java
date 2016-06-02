@@ -9,7 +9,6 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -59,7 +58,7 @@ public class Employee {
         return joiningDate;
     }
 
-    public void setJoiningDate(Timestamp joiningDate) {
+    public void setJoiningDate(Date joiningDate) {
         this.joiningDate = joiningDate;
     }
 
