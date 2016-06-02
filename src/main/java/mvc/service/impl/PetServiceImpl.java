@@ -40,7 +40,7 @@ public class PetServiceImpl implements PetService{
         Pet entity = dao.getById(pet.getId());
         if(entity!=null){
             entity.setName(pet.getName());
-            entity.setPetGroups(pet.getPetGroups());
+//            entity.setPetGroups(pet.getPetGroups());
             entity.setPetState(pet.getPetState());
         }
     }
