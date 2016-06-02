@@ -14,15 +14,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min=3, max=50)
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @NotNull
-    @Column(name = "EMAIL", unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
-    @Column(name = "PASSWORD", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
     @ManyToOne
-    @JoinColumn(name="ROLEID")
+    @JoinColumn(name="roleid")
     private Role role;
 
     public User() {

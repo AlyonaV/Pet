@@ -3,12 +3,12 @@ package mvc.persistence.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ROLE")
+@Table(name="role")
 public class Role {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="NAME", unique = true,nullable = false)
+    @Column(name="name", unique = true,nullable = false)
     private String name=RoleType.USER.getRoleType();
 
     public Integer getId() {
