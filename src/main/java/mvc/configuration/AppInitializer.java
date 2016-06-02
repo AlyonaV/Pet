@@ -9,16 +9,21 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-public class AppInitializer implements WebApplicationInitializer {
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
-        webApplicationContext.register(AppConfig.class, WebMvcConfig.class);
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[] { AppConfig.class };
+    }
 
-        ServletRegistration.Dynamic dynamc = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(webApplicationContext));
-        dynamc.addMapping("*");
-        dynamc.setLoadOnStartup(1);
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return null;
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] { "/" };
     }
 
 }
