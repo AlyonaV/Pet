@@ -35,6 +35,7 @@ public class DeviceServiceImpl implements DeviceService{
         dao.deleteById(id);
     }
 
+    @Transactional
     @Override
     public List<Device> getAllDevices() {
         return dao.getAllDevices();
