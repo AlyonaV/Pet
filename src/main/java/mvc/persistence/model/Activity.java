@@ -1,12 +1,12 @@
 package mvc.persistence.model;
 
 import org.hibernate.annotations.Type;
-import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "activity")
@@ -37,16 +37,16 @@ public class Activity {
     @Column(name="lat",nullable=false)
     private Integer lat;
     @NotNull
-    @DateTimeFormat(pattern="HH:mm:ss-dd/MM/yyyy")
+//    @DateTimeFormat(pattern="HH:mm:ss-dd/MM/yyyy")
     @Column(name = "time", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private LocalDate time;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date time;
 
     public Activity() {
     }
 
     public Activity(String name, Device device, Integer latG, Integer latM, Integer latMm, Integer longG,
-                    Integer longM, Integer longMm, Integer lon, Integer lat, LocalDate time) {
+                    Integer longM, Integer longMm, Integer lon, Integer lat, Date time) {
         this.name = name;
         this.device = device;
         this.latG = latG;
@@ -132,11 +132,11 @@ public class Activity {
         this.longMm = longMm;
     }
 
-    public LocalDate getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

@@ -12,7 +12,6 @@ import mvc.service.ActivityService;
 import mvc.service.DeviceService;
 import mvc.service.PetGroupService;
 import mvc.service.UserService;
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

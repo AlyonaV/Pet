@@ -2,7 +2,6 @@ package mvc.persistence.model;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -10,6 +9,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name="EMPLOYEE")
@@ -24,10 +24,10 @@ public class Employee {
     private String name;
 
     @NotNull
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+//    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "JOINING_DATE", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private LocalDate joiningDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date joiningDate;
 
     @NotNull
     @Digits(integer=8, fraction=2)
@@ -54,11 +54,11 @@ public class Employee {
         this.name = name;
     }
 
-    public LocalDate getJoiningDate() {
+    public Date getJoiningDate() {
         return joiningDate;
     }
 
-    public void setJoiningDate(LocalDate joiningDate) {
+    public void setJoiningDate(Date joiningDate) {
         this.joiningDate = joiningDate;
     }
 

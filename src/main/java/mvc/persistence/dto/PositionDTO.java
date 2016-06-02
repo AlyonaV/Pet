@@ -3,6 +3,8 @@ package mvc.persistence.dto;
 import mvc.persistence.model.Activity;
 import org.joda.time.LocalDate;
 
+import java.util.Date;
+
 /**
  * Created by Alona on 02.06.2016.
  */
@@ -15,7 +17,7 @@ public class PositionDTO {
     private Integer longG;
     private Integer longM;
     private Integer longMm;
-    private LocalDate time;
+    private Date time;
 
     public PositionDTO() {
     }
@@ -96,11 +98,11 @@ public class PositionDTO {
         this.longMm = longMm;
     }
 
-    public LocalDate getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
