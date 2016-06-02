@@ -17,11 +17,11 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name="petstateid")
     private PetState petState;
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "pets", fetch = FetchType.LAZY)
-//    @JoinTable(name = "petgroup_pet",
-//            joinColumns = { @JoinColumn(name = "petid") },
-//            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
-    private List<PetGroup> petGroups = new ArrayList<PetGroup>();
+//    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "pets", fetch = FetchType.LAZY)
+////    @JoinTable(name = "petgroup_pet",
+////            joinColumns = { @JoinColumn(name = "petid") },
+////            inverseJoinColumns = { @JoinColumn(name = "petgroupid") })
+//    private List<PetGroup> petGroups = new ArrayList<PetGroup>();
 
     public Pet() {
     }
@@ -29,7 +29,7 @@ public class Pet {
     public Pet(String name, PetState petState, List<PetGroup> petGroups) {
         this.name = name;
         this.petState = petState;
-        this.petGroups = petGroups;
+//        this.petGroups = petGroups;
     }
 
     public Integer getId() {
@@ -56,13 +56,13 @@ public class Pet {
         this.petState = petState;
     }
 
-    public List<PetGroup> getPetGroups() {
-        return petGroups;
-    }
-
-    public void setPetGroups(List<PetGroup> petGroups) {
-        this.petGroups = petGroups;
-    }
+//    public List<PetGroup> getPetGroups() {
+//        return petGroups;
+//    }
+//
+//    public void setPetGroups(List<PetGroup> petGroups) {
+//        this.petGroups = petGroups;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -73,7 +73,7 @@ public class Pet {
 
         if (!id.equals(pet.id)) return false;
         if (!name.equals(pet.name)) return false;
-        if (!petGroups.equals(pet.petGroups)) return false;
+//        if (!petGroups.equals(pet.petGroups)) return false;
         if (petState != null ? !petState.equals(pet.petState) : pet.petState != null) return false;
 
         return true;
@@ -84,7 +84,7 @@ public class Pet {
         int result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + (petState != null ? petState.hashCode() : 0);
-        result = 31 * result + petGroups.hashCode();
+//        result = 31 * result + petGroups.hashCode();
         return result;
     }
 
@@ -94,7 +94,7 @@ public class Pet {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", petState=" + petState +
-                ", petGroups=" + petGroups +
+//                ", petGroups=" + petGroups +
                 '}';
     }
 
