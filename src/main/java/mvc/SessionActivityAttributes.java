@@ -29,4 +29,8 @@ public class SessionActivityAttributes {
         return !sessionAttributes.get(deviceId).equals(lastPosition);
     }
 
+    public PositionDTO getLastPosition(Integer deviceId){
+        return sessionAttributes.get(deviceId);
+    }
+
 }

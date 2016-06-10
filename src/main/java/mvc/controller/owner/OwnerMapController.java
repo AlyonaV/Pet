@@ -38,7 +38,7 @@ public class OwnerMapController {
     SessionActivityAttributes sessionActivityAttributes = SessionActivityAttributes.getInstance();
 
     @RequestMapping(value = "/groups/", method = RequestMethod.GET)
-    public ResponseEntity<List<PetGroupDevicesDTO>> listAllUsers(@RequestParam("userEmail") String userEmail) {
+    public ResponseEntity<List<PetGroupDevicesDTO>> listAllGroups(@RequestParam("userEmail") String userEmail) {
         System.out.println("getAllPetGroups");
         Integer ownerId = userService.getByEmail(userEmail).getId();
         List<PetGroup> petGroups = petGroupService.getByUserId(ownerId);
@@ -62,9 +62,11 @@ public class OwnerMapController {
     }
 
     @RequestMapping(value = "/deviceNewActivity/", method = RequestMethod.GET)
-    public ResponseEntity<PositionDTO> deviceActivity(@RequestParam("deviceId") Integer deviceId,
-                                                      @RequestParam(required = false, value = "lastPosition")
-                                                      PositionDTO lastPosition) throws InterruptedException {
+    public ResponseEntity<PositionDTO> deviceNewActivity(@RequestParam("deviceId") Integer deviceId
+//                                                      ,@RequestParam(required = false, value = "lastPosition")
+//                                                      PositionDTO lastPosition
+                                                        ) throws InterruptedException {
+        PositionDTO lastPosition = sessionActivityAttributes.getLastPosition(deviceId);
         if(lastPosition!=null) {
             if (!sessionActivityAttributes.hasRefreshed(deviceId, lastPosition)) {
                 Thread.sleep(500);
