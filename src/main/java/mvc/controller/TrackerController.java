@@ -12,20 +12,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("")
 public class TrackerController {
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public void listAllUsers(@RequestBody String gotMessage) {
-        Logger.getLogger(getClass().getName()).log(Level.INFO,
-                "MSG from device:{0}", gotMessage);
-        TK103Protocol protocol = new TK103Protocol();
-
-        try {
-            Tk103SentenceDTO tk103SentenceDTO = protocol.ParseSentence(gotMessage);
-            System.out.println(tk103SentenceDTO.toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        System.out.println("msse");
+//        Logger.getLogger(getClass().getName()).log(Level.INFO,
+//                "MSG from device:{0}", gotMessage);
+//        TK103Protocol protocol = new TK103Protocol();
+//
+//        try {
+//            Tk103SentenceDTO tk103SentenceDTO = protocol.ParseSentence(gotMessage);
+//            System.out.println(tk103SentenceDTO.toString());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
     }
 }
