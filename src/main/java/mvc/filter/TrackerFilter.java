@@ -17,8 +17,11 @@ public class TrackerFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("FILLLTER");
         Enumeration<String> params = servletRequest.getParameterNames();
-        while(params.hasMoreElements())
-            System.out.println(params.nextElement());
+        while(params.hasMoreElements()) {
+            String param = params.nextElement();
+            System.out.println(param);
+            System.out.println(servletRequest.getParameterValues(param));
+        }
         System.out.println(servletRequest.getServletContext().getContextPath());
         filterChain.doFilter(servletRequest,servletResponse);
     }
