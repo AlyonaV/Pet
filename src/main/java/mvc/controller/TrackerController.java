@@ -35,7 +35,7 @@ public class TrackerController {
 //    }
     @RequestMapping(value = "", method = RequestMethod.HEAD)
     public void listAllUsersHEAD() {
-        System.out.println("msseGET");
+        System.out.println("msseHEAD");
     }
 //    @RequestMapping(value = "")
 //    public void listAllUsersO() {
