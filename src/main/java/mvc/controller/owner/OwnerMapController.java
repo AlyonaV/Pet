@@ -66,14 +66,13 @@ public class OwnerMapController {
     public ResponseEntity<PositionDTO> deviceNewActivity(@RequestParam("deviceId") Integer deviceId
 //                                                      ,@RequestParam(required = false, value = "lastPosition")
 //                                                      PositionDTO lastPosition
-                                                        ) throws InterruptedException {
+    ) throws InterruptedException {
         PositionDTO lastPosition = sessionActivityAttributes.getLastPosition(deviceId);
-        if(lastPosition!=null) {
+        if (lastPosition != null) {
             if (!sessionActivityAttributes.hasRefreshed(deviceId, lastPosition)) {
                 Thread.sleep(500);
             }
-        }
-        else{
+        } else {
             sessionActivityAttributes.createSession(deviceId, new PositionDTO(activityService.getLast(deviceId)));
         }
         Activity lastActivity = activityService.getLast(deviceId);
@@ -85,7 +84,8 @@ public class OwnerMapController {
         HttpHeaders header = new HttpHeaders();
         header.add("Access-Control-Allow-Origin", "*");
         header.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        header.add("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        header.add("Access-Control-Max-Age", "3600");
+        header.add("Access-Control-Allow-Headers", "X-Requested-With");
         return new ResponseEntity<PositionDTO>(lastPositionDTO, header, HttpStatus.OK);
     }
 }

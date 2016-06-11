@@ -4,6 +4,7 @@ import mvc.persistence.dto.PositionDTO;
 import mvc.persistence.model.Activity;
 import mvc.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,12 @@ public class OwnerArchieveController {
         for(Activity activity: activities){
             positionDTOs.add(new PositionDTO(activity));
         }
-        return new ResponseEntity<List<PositionDTO>>(positionDTOs, HttpStatus.OK);
+        HttpHeaders header = new HttpHeaders();
+        header.add("Access-Control-Allow-Origin", "*");
+        header.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        header.add("Access-Control-Max-Age", "3600");
+        header.add("Access-Control-Allow-Headers", "X-Requested-With");
+        return new ResponseEntity<List<PositionDTO>>(positionDTOs, header, HttpStatus.OK);
     }
 
 }
