@@ -33,10 +33,10 @@ public class TrackerController {
 //    public void listAllUsersPUT() {
 //        System.out.println("mssePUT");
 //    }
-//    @RequestMapping(value = "", method = RequestMethod.HEAD)
-//    public void listAllUsersHEAD() {
-//        System.out.println("msseGET");
-//    }
+    @RequestMapping(value = "", method = RequestMethod.HEAD)
+    public void listAllUsersHEAD() {
+        System.out.println("msseGET");
+    }
 //    @RequestMapping(value = "")
 //    public void listAllUsersO() {
 //        System.out.println("mssePOST");
