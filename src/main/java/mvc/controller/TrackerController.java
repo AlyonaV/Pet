@@ -17,7 +17,7 @@ public class TrackerController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public void listAllUsers(@RequestBody String gotMessage) {
-        System.out.println("msse");
+        System.out.println("mssePOST");
 //        Logger.getLogger(getClass().getName()).log(Level.INFO,
 //                "MSG from device:{0}", gotMessage);
 //        TK103Protocol protocol = new TK103Protocol();
@@ -28,5 +28,10 @@ public class TrackerController {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public void listAllUsersGET(@RequestBody String gotMessage) {
+        System.out.println("msseGET");
     }
 }
