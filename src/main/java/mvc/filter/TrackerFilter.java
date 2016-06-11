@@ -16,6 +16,7 @@ public class TrackerFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("FILLLTER");
         System.out.println(servletRequest.getDispatcherType().toString());
+        System.out.println(servletRequest.getReader().toString());
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
