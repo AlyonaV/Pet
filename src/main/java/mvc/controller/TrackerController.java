@@ -28,4 +28,14 @@ public class TrackerController {
     public void listAllUsersGET(@RequestBody String gotMessage) {
         System.out.println("msseGET");
     }
+
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public void listAllUsersPUT(@RequestBody String gotMessage) {
+        System.out.println("mssePUT");
+    }
+    @RequestMapping(value = "", method = RequestMethod.HEAD)
+    public void listAllUsersHEAD(@RequestBody String gotMessage) {
+        System.out.println("msseGET");
+    }
+
 }
