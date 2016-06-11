@@ -1,13 +1,11 @@
 package mvc.configuration;
 
+import mvc.filter.TrackerFilter;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewFilter;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -28,7 +26,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[] { new OpenSessionInViewFilter(), new CommonsRequestLoggingFilter() };
+        return new Filter[] { new OpenSessionInViewFilter(), new CommonsRequestLoggingFilter(), new TrackerFilter()};
     }
 
 }
