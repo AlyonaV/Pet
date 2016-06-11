@@ -24,10 +24,10 @@ public class TrackerController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public void listAllUsersGET(@RequestParam int id, @RequestParam Date timestamp,
-                                @RequestParam float lat, @RequestParam float lon,
-                                @RequestParam float speed, @RequestParam float bearing,
-                                @RequestParam float altitude, @RequestParam float batt) {
+    public void listAllUsersGET(@RequestParam String id, @RequestParam String timestamp,
+                                @RequestParam String lat, @RequestParam String lon,
+                                @RequestParam String speed, @RequestParam String bearing,
+                                @RequestParam String altitude, @RequestParam String batt) {
         System.out.println("msseGET");
     }
 
