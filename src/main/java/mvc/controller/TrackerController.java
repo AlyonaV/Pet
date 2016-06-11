@@ -37,5 +37,19 @@ public class TrackerController {
     public void listAllUsersHEAD(@RequestBody String gotMessage) {
         System.out.println("msseGET");
     }
+    @RequestMapping(value = "")
+    public void listAllUsersO(@RequestBody String gotMessage) {
+        System.out.println("mssePOST");
+//        Logger.getLogger(getClass().getName()).log(Level.INFO,
+//                "MSG from device:{0}", gotMessage);
+//        TK103Protocol protocol = new TK103Protocol();
+//
+//        try {
+//            Tk103SentenceDTO tk103SentenceDTO = protocol.ParseSentence(gotMessage);
+//            System.out.println(tk103SentenceDTO.toString());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+    }
 
 }

@@ -22,6 +22,8 @@ public class TrackerFilter implements Filter {
         while(attributes.hasMoreElements()){
             System.out.println(attributes.nextElement());
         }
+        System.out.println(servletRequest.getRemoteAddr());
+        System.out.println(servletRequest.getRemoteHost());
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
