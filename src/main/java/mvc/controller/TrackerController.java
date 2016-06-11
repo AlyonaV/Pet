@@ -28,28 +28,28 @@ public class TrackerController {
     public void listAllUsersGET() {
         System.out.println("msseGET");
     }
-
-    @RequestMapping(value = "", method = RequestMethod.PUT)
-    public void listAllUsersPUT() {
-        System.out.println("mssePUT");
-    }
-    @RequestMapping(value = "", method = RequestMethod.HEAD)
-    public void listAllUsersHEAD() {
-        System.out.println("msseGET");
-    }
-    @RequestMapping(value = "")
-    public void listAllUsersO() {
-        System.out.println("mssePOST");
-//        Logger.getLogger(getClass().getName()).log(Level.INFO,
-//                "MSG from device:{0}", gotMessage);
-//        TK103Protocol protocol = new TK103Protocol();
 //
-//        try {
-//            Tk103SentenceDTO tk103SentenceDTO = protocol.ParseSentence(gotMessage);
-//            System.out.println(tk103SentenceDTO.toString());
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-    }
+//    @RequestMapping(value = "", method = RequestMethod.PUT)
+//    public void listAllUsersPUT() {
+//        System.out.println("mssePUT");
+//    }
+//    @RequestMapping(value = "", method = RequestMethod.HEAD)
+//    public void listAllUsersHEAD() {
+//        System.out.println("msseGET");
+//    }
+//    @RequestMapping(value = "")
+//    public void listAllUsersO() {
+//        System.out.println("mssePOST");
+////        Logger.getLogger(getClass().getName()).log(Level.INFO,
+////                "MSG from device:{0}", gotMessage);
+////        TK103Protocol protocol = new TK103Protocol();
+////
+////        try {
+////            Tk103SentenceDTO tk103SentenceDTO = protocol.ParseSentence(gotMessage);
+////            System.out.println(tk103SentenceDTO.toString());
+////        } catch (ParseException e) {
+////            e.printStackTrace();
+////        }
+//    }
 
 }
