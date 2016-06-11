@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TrackerController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public void listAllUsers(@RequestBody String gotMessage) {
+    public void listAllUsers() {
         System.out.println("mssePOST");
 //        Logger.getLogger(getClass().getName()).log(Level.INFO,
 //                "MSG from device:{0}", gotMessage);
@@ -25,20 +25,20 @@ public class TrackerController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public void listAllUsersGET(@RequestBody String gotMessage) {
+    public void listAllUsersGET() {
         System.out.println("msseGET");
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
-    public void listAllUsersPUT(@RequestBody String gotMessage) {
+    public void listAllUsersPUT() {
         System.out.println("mssePUT");
     }
     @RequestMapping(value = "", method = RequestMethod.HEAD)
-    public void listAllUsersHEAD(@RequestBody String gotMessage) {
+    public void listAllUsersHEAD() {
         System.out.println("msseGET");
     }
     @RequestMapping(value = "")
-    public void listAllUsersO(@RequestBody String gotMessage) {
+    public void listAllUsersO() {
         System.out.println("mssePOST");
 //        Logger.getLogger(getClass().getName()).log(Level.INFO,
 //                "MSG from device:{0}", gotMessage);
