@@ -11,19 +11,11 @@ import java.util.List;
 public class TrackerFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("FILLLTER");
-        System.out.println(servletRequest.getDispatcherType().toString());
-        Enumeration<String> attributes = servletRequest.getAttributeNames();
-        while(attributes.hasMoreElements()){
-            System.out.println(attributes.nextElement());
-        }
-        System.out.println(servletRequest.getRemoteAddr());
-        System.out.println(servletRequest.getRemoteHost());
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
