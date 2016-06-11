@@ -12,10 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/")
 public class TrackerController {
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public void listAllUsers(@RequestBody String gotMessage) {
         System.out.println("mssePOST");
 //        Logger.getLogger(getClass().getName()).log(Level.INFO,
@@ -30,7 +30,7 @@ public class TrackerController {
 //        }
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public void listAllUsersGET(@RequestBody String gotMessage) {
         System.out.println("msseGET");
     }
