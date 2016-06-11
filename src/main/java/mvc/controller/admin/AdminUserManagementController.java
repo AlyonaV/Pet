@@ -4,6 +4,7 @@ import mvc.persistence.model.User;
 import mvc.service.RoleService;
 import mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,10 @@ public class AdminUserManagementController {
         if (users.isEmpty()) {
             return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+        HttpHeaders header = new HttpHeaders();
+        header.add("Access-Control-Allow-Origin", "*");
+        header.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        header.add("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        return new ResponseEntity<List<User>>(users, header, HttpStatus.OK);
     }
 }

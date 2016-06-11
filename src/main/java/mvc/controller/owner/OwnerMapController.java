@@ -84,6 +84,8 @@ public class OwnerMapController {
         PositionDTO lastPositionDTO = new PositionDTO(lastActivity);
         HttpHeaders header = new HttpHeaders();
         header.add("Access-Control-Allow-Origin", "*");
+        header.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        header.add("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
         return new ResponseEntity<PositionDTO>(lastPositionDTO, header, HttpStatus.OK);
     }
 }
