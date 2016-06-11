@@ -13,6 +13,7 @@ import mvc.service.DeviceService;
 import mvc.service.PetGroupService;
 import mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -81,6 +82,8 @@ public class OwnerMapController {
             return new ResponseEntity<PositionDTO>(HttpStatus.NO_CONTENT);
         }
         PositionDTO lastPositionDTO = new PositionDTO(lastActivity);
-        return new ResponseEntity<PositionDTO>(lastPositionDTO, HttpStatus.OK);
+        HttpHeaders header = new HttpHeaders();
+        header.add("Access-Control-Allow-Origin", "*");
+        return new ResponseEntity<PositionDTO>(lastPositionDTO, header, HttpStatus.OK);
     }
 }
