@@ -31,7 +31,8 @@ public class AdminUserManagementController {
         HttpHeaders header = new HttpHeaders();
         header.add("Access-Control-Allow-Origin", "*");
         header.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        header.add("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        header.add("Access-Control-Max-Age", "3600");
+        header.add("Access-Control-Allow-Headers", "X-Requested-With");
         return new ResponseEntity<List<User>>(users, header, HttpStatus.OK);
     }
 }
