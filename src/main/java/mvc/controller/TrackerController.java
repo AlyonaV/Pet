@@ -28,6 +28,14 @@ public class TrackerController {
                                 @RequestParam String lat, @RequestParam String lon,
                                 @RequestParam String speed, @RequestParam String bearing,
                                 @RequestParam String altitude, @RequestParam String batt) {
+        System.out.println(id);
+        System.out.println(timestamp);
+        System.out.println(lat);
+        System.out.println(lon);
+        System.out.println(speed);
+        System.out.println(bearing);
+        System.out.println(altitude);
+        System.out.println(batt);
         System.out.println("msseGET");
     }
 
