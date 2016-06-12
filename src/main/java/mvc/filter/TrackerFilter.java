@@ -22,6 +22,7 @@ public class TrackerFilter implements Filter {
             System.out.println(param);
             System.out.println(servletRequest.getParameterValues(param));
         }
+        System.out.println(servletRequest.getRemoteHost());
         System.out.println(servletRequest.getServletContext().getContextPath());
         filterChain.doFilter(servletRequest,servletResponse);
     }
